@@ -12,8 +12,12 @@ export class DataProvider {
 
   getDecimalFormatted(){
     let result = [];
-    for(let i in this.pi.match(/(.....)./g).map(x=>x.match(/.{1,2}/g).join('-'))){
-      result.push(i);
+    let piSplited = this.pi.match(/(.....)./g).map(x=>x.match(/.{1,2}/g).join('-'));
+    for(let i in piSplited){
+      if(Number(i) % 17 === 0){
+        result.push([]);
+      }
+      result[Math.floor(Number(i)/17)].push(piSplited[i]);
     }
     return result;
   }

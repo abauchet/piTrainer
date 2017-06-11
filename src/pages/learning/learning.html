@@ -8,9 +8,9 @@
 
 <ion-content>
     <ion-item-group *ngFor="let group of groups; let g = index;">
-        <ion-item-divider color="light">{{groupLength}}{{g * 17}}</ion-item-divider>
-        <ion-item *ngFor="let item of group; let i = index;">
-            <ion-badge color="secondary">{{g * 17 + i*6}}</ion-badge>
+        <ion-item-divider (click)="groupVisible = g === groupVisible ? -1 : g" color="light">{{g * 17 * 6}}</ion-item-divider>
+        <ion-item *ngFor="let item of group; let i = index;" [hidden]="g != groupVisible">
+            <ion-badge color="secondary">{{g * 17 * 6 + i*6}}</ion-badge>
             {{item}}
         </ion-item>
     </ion-item-group>

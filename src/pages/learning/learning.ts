@@ -7,13 +7,16 @@ import { DataProvider } from '../../providers/data/data';
   templateUrl: 'learning.html'
 })
 export class LearningPage {
+  groupVisible = -1;
 
   constructor(public navCtrl: NavController, private dataProvider: DataProvider) {}
 
-  groups = [
-    ['10-87-98','78-85-89','78-85-89','78-85-89'],
-    ['10-87-98','78-85-89','78-85-89','78-85-89']
-  ];
+  // groups = [
+  //   ['10-87-98','78-85-89','78-85-89','78-85-89'],
+  //   ['10-87-98','78-85-89','78-85-89','78-85-89']
+  // ];
+
+  groups = this.dataProvider.getDecimalFormatted();
 
   groupLength = this.groups[0].length;
 }
