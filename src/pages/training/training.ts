@@ -8,16 +8,16 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class TrainingPage {
   decimals: string = '';
-  decimalsLength: number = 0;
+  decimalsLength: number = this.storage.get('startFromDefault');
   padColor: string = '';
   startFromCount: number = -1;
-  startFromDefault: number = 0;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController,
-    private dataProvider: DataProvider) {
+    private dataProvider: DataProvider,
+    private storage: Storage) {
   }
 
   showMenu() {
@@ -53,13 +53,13 @@ export class TrainingPage {
       this.showMenu();
     } else if(value === 'undo'){
       this.decimals = '';
-      this.decimalsLength = this.startFromDefault;
+      this.decimalsLength = this.storage.get('startFromDefault');
     } else {
       if(this.startFromCount > 0){
         this.decimalsLength = this.decimalsLength + value * this.startFromCount;
         this.startFromCount = this.startFromCount / 10;
         if(this.startFromCount < 1){
-          this.startFromDefault = this.decimalsLength;
+          this.storage.set('startFromDefault', this.decimalsLength);
           this.startFromCount = -1;
           this.padColor = '';
         }

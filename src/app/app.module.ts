@@ -14,6 +14,8 @@ import { KeypadComponent } from '../components/keypad/keypad';
 import { DataProvider } from '../providers/data/data';
 import { FormatPipe } from '../pipes/format/format';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +28,8 @@ import { FormatPipe } from '../pipes/format/format';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
