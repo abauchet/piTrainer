@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
+import { Storage } from '@ionic/Storage';
 
 @Component({
   selector: 'page-training',
@@ -8,7 +9,7 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class TrainingPage {
   decimals: string = '';
-  decimalsLength: number = this.storage.get('startFromDefault');
+  decimalsLength: number = 0;
   padColor: string = '';
   startFromCount: number = -1;
 
@@ -45,7 +46,9 @@ export class TrainingPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TrainingPage');
+      this.storage.get('startFromDefault').then(v=>{
+        this.decimalsLength = v === null ? 0 : Number(v);
+      });
   }
 
   onkeyPress(value){
@@ -53,7 +56,9 @@ export class TrainingPage {
       this.showMenu();
     } else if(value === 'undo'){
       this.decimals = '';
-      this.decimalsLength = this.storage.get('startFromDefault');
+      this.storage.get('startFromDefault').then(v=>{
+        this.decimalsLength = Number(v);
+      });
     } else {
       if(this.startFromCount > 0){
         this.decimalsLength = this.decimalsLength + value * this.startFromCount;
