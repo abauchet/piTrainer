@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
-<<<<<<< HEAD
 import { Storage } from '@ionic/storage';
-=======
-import { Storage } from '@ionic/Storage';
->>>>>>> a3cc6aa5df5216331e9f7b9c7b6975ff07029a7d
 
 @Component({
   selector: 'page-training',

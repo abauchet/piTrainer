@@ -14,11 +14,7 @@ import { KeypadComponent } from '../components/keypad/keypad';
 import { DataProvider } from '../providers/data/data';
 import { FormatPipe } from '../pipes/format/format';
 
-<<<<<<< HEAD
 import { IonicStorageModule } from '@ionic/storage';
-=======
-import { IonicStorageModule } from '@ionic/Storage';
->>>>>>> a3cc6aa5df5216331e9f7b9c7b6975ff07029a7d
 
 @NgModule({
   declarations: [
