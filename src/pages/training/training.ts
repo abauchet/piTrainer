@@ -54,11 +54,6 @@ export class TrainingPage {
       });
   }
 
-  onSwipeEvent(e){
-    console.log(e.offsetDirection);
-    this.navCtrl.push(this.learningPage);
-  }
-
   onkeyPress(value){
     if(value === 'menu'){
       this.showMenu();
