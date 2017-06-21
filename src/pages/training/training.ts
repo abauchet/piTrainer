@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { Storage } from '@ionic/storage';
-import { Gesture } from 'ionic-angular/gestures/gesture';
 import { LearningPage } from "../learning/learning";
 
 @Component({
