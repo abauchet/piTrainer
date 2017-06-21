@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
+import { StatsPage } from "../stats/stats";
+import { TrainingPage } from "../training/training";
 
 @Component({
   selector: 'page-learning',
@@ -8,13 +10,10 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class LearningPage {
   groupVisible = -1;
+  statsPage = StatsPage;
+  trainingPage = TrainingPage;
 
   constructor(public navCtrl: NavController, private dataProvider: DataProvider) {}
-
-  // groups = [
-  //   ['10-87-98','78-85-89','78-85-89','78-85-89'],
-  //   ['10-87-98','78-85-89','78-85-89','78-85-89']
-  // ];
 
   groups = this.dataProvider.getDecimalFormatted();
 

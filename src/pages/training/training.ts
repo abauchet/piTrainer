@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { Storage } from '@ionic/storage';
+import { Gesture } from 'ionic-angular/gestures/gesture';
+import { LearningPage } from "../learning/learning";
 
 @Component({
   selector: 'page-training',
@@ -12,6 +14,7 @@ export class TrainingPage {
   decimalsLength: number = 0;
   padColor: string = '';
   startFromCount: number = -1;
+  learningPage = LearningPage;
 
   constructor(
     public navCtrl: NavController,
@@ -49,6 +52,11 @@ export class TrainingPage {
       this.storage.get('startFromDefault').then(v=>{
         this.decimalsLength = v === null ? 0 : Number(v);
       });
+  }
+
+  onSwipeEvent(e){
+    console.log(e.offsetDirection);
+    this.navCtrl.push(this.learningPage);
   }
 
   onkeyPress(value){
