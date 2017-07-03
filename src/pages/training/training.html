@@ -5,11 +5,13 @@
 
 </ion-header>
 
-<ion-content padding (swipeleft)="navCtrl.push(learningPage)">
-    <ion-label stacked>{{decimalsLength}}</ion-label>
-    <div>{{decimals | format}}</div>
+<ion-content>
+    <ion-card (swipeleft)="navCtrl.push(learningPage)">
+        <ion-label stacked>{{decimalsLength}}</ion-label>
+        <div>{{decimals | format}}</div>
+    </ion-card>
 </ion-content>
 
-<ion-footer>
+<ion-footer (swipeleft)="navCtrl.push(learningPage)">
     <keypad [padColor]="padColor" (onkeyPress)="onkeyPress($event)"></keypad>
 </ion-footer>

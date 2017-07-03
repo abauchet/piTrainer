@@ -1,1 +1,6 @@
-page-stats {}
+page-stats {
+    ion-grid {
+        height: 100%;
+        flex-wrap: wrap;
+    }
+}
