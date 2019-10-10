@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
-import { Storage } from '@ionic/Storage';
+import { Storage } from '@ionic/storage';
+import { LearningPage } from "../learning/learning";
 
 @Component({
   selector: 'page-training',
@@ -12,6 +13,7 @@ export class TrainingPage {
   decimalsLength: number = 0;
   padColor: string = '';
   startFromCount: number = -1;
+  learningPage = LearningPage;
 
   constructor(
     public navCtrl: NavController,
