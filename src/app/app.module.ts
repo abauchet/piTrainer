@@ -15,6 +15,14 @@ import { DataProvider } from '../providers/data/data';
 import { FormatPipe } from '../pipes/format/format';
 
 import { IonicStorageModule } from '@ionic/Storage';
+import 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = {
+    'rotate': { enable: true } //rotate is disabled by default, so we need to enable it
+  }
+}
 
 @NgModule({
   declarations: [
@@ -44,6 +52,12 @@ import { IonicStorageModule } from '@ionic/Storage';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
+
+, {provide: HAMMER_GESTURE_CONFIG,
+    useClass: CustomHammerConfig}
+
+
+
   ]
 })
 export class AppModule {}

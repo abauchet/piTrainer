@@ -11,12 +11,10 @@ export class LearningPage {
 
   constructor(public navCtrl: NavController, private dataProvider: DataProvider) {}
 
-  // groups = [
-  //   ['10-87-98','78-85-89','78-85-89','78-85-89'],
-  //   ['10-87-98','78-85-89','78-85-89','78-85-89']
-  // ];
+  swipeEvent(e) {
+    console.log(e);
+  }
 
   groups = this.dataProvider.getDecimalFormatted();
-
   groupLength = this.groups[0].length;
 }

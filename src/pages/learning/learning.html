@@ -6,7 +6,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content (swipe)="swipeEvent($event)">
     <ion-item-group *ngFor="let group of groups; let g = index;">
         <ion-item-divider (click)="groupVisible = g === groupVisible ? -1 : g" color="light">{{g * 17 * 6}}</ion-item-divider>
         <ion-item *ngFor="let item of group; let i = index;" [hidden]="g != groupVisible">
